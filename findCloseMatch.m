@@ -76,7 +76,9 @@ if ~isCaQM && isJaQM
     c_val(3) = str2num(c3);
     j_val(3) = str2num(j3);
     
-    abs_c_minus_j   = abs(c_val - j_val);
+    temp = len-1:-1:0;
+    temp = 10.^temp;
+    abs_c_minus_j   = abs([sum((c1-j1).*temp), sum((c2-j2).*temp), sum((c3-j3).*temp)]);
     min_val         = min(abs_c_minus_j);
     min_val_index   = find(abs_c_minus_j == min_val);
     if length(min_val_index) > 1
@@ -134,7 +136,9 @@ if isCaQM && ~isJaQM
     c_val(3) = str2num(c3);
     j_val(3) = str2num(j3);
     
-    abs_c_minus_j   = abs(c_val - j_val);
+    temp = len-1:-1:0;
+    temp = 10.^temp;
+    abs_c_minus_j   = abs([sum((c1-j1).*temp), sum((c2-j2).*temp), sum((c3-j3).*temp)]);
     min_val         = min(abs_c_minus_j);
     min_val_index   = find(abs_c_minus_j == min_val);
     if length(min_val_index) > 1
@@ -182,7 +186,10 @@ if isCaQM && isJaQM
     c_val(3) = str2num(c3);
     j_val(3) = str2num(j3);
     
-    abs_c_minus_j   = abs(c_val - j_val);
+    temp = len-1:-1:0;
+    temp = 10.^temp;
+    abs_c_minus_j   = abs([sum((c1-j1).*temp), sum((c2-j2).*temp), sum((c3-j3).*temp)]);
+%     abs_c_minus_j   = abs(c_val - j_val);
     min_val         = min(abs_c_minus_j);
     min_val_index   = find(abs_c_minus_j == min_val);
     if length(min_val_index) > 1
